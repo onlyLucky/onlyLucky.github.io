@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Only Lucky</title>
+  
+  <subtitle>个人博客空间</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://onlyLucky.github.io/"/>
+  <updated>2019-09-19T01:51:57.421Z</updated>
+  <id>https://onlyLucky.github.io/</id>
+  
+  <author>
+    <name>Feynman</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS权重计算</title>
+    <link href="https://onlyLucky.github.io/2019/09/19/CSS%E6%9D%83%E9%87%8D%E8%AE%A1%E7%AE%97/"/>
+    <id>https://onlyLucky.github.io/2019/09/19/CSS权重计算/</id>
+    <published>2019-09-18T16:00:00.000Z</published>
+    <updated>2019-09-19T01:51:57.421Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="CSS权重计算"><a href="#CSS权重计算" class="headerlink" title="CSS权重计算"></a>CSS权重计算</h1><p>&emsp;&emsp;一般情况，对于刚接触css3的小白来说，CSS样式权重的计算原理依旧是一头雾水。</p><a id="more"></a><p>&emsp;&emsp;CSS样式的权重排序是：!important&gt;行间样式&gt;id&gt;class|属性&gt;标签选择器&gt;通配符*(注:&gt;表示高低，|表示同级)，但是CSS样式权重并不像我们想象的由高到低排序一样那么简单，其中的权重等级是可以简单计算的，没错，你没有听错！像四则运算一样</p><p>下面的表格为CSS‘权重值’(0,1,10,100,1000并不为准确数值)</p><table><thead><tr><th align="left">CSS样式</th><th>权重数值</th></tr></thead><tbody><tr><td align="left">!important</td><td>infinity</td></tr><tr><td align="left">行间样式</td><td>1000</td></tr><tr><td align="left">id</td><td>100</td></tr><tr><td align="left">class|属性|伪类</td><td>10</td></tr><tr><td align="left">标签|伪元素</td><td>1</td></tr><tr><td align="left">通配符*</td><td>0</td></tr></tbody></table><p>&emsp;&emsp;根据资料查证：例如id，100并不是指id的一个权重值就是100，实际上这个100是一个进制数，不是2进制，也不是10进制；而是256进制，就是0到255后+1才是1，列如通配符的权重值0到标签、伪元素的权重值1，中时间实际上差了255。依次类推。</p><p>&emsp;&emsp;!important的权重值虽然是正无穷，但其实也是可也计算的，比如正无穷+1或者*1，就是要比正无穷大，其原理是不管那种语言，在计算机中正无穷的值，都是一个有界的。不是数学上无界的一个慨念。</p><p>下面以代码方式演示权重计算的方式：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#home</span>&#123;</span><br><span class="line">    <span class="comment">/*权重计算方式为1*100=100*/</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-id">#home</span> <span class="selector-class">.home-nav</span>&#123;</span><br><span class="line">    <span class="comment">/*权重计算方式为1*100+1*10=110*/</span></span><br><span class="line">    <span class="comment">/*css变量的使用*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">var</span>(--color-tint);</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;有时候我们或许遇到权重等级不够，样式被覆盖，不显示。或许多加一个id选择器，就会简单解决；我们还可以灵活利用浏览器提供的开发者工具，检测元素标签的属性，盒子大小….</p><p>&emsp;&emsp;最后，第一次做博客小白，有什么缺漏的还请各位已经深入WEB的老司机多多指教批评</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;CSS权重计算&quot;&gt;&lt;a href=&quot;#CSS权重计算&quot; class=&quot;headerlink&quot; title=&quot;CSS权重计算&quot;&gt;&lt;/a&gt;CSS权重计算&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;一般情况，对于刚接触css3的小白来说，CSS样式权重的计算原理依旧是一头雾水。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Web前端" scheme="https://onlyLucky.github.io/categories/Web%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="css" scheme="https://onlyLucky.github.io/tags/css/"/>
+    
+  </entry>
+  
+</feed>
