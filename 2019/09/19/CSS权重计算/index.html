@@ -1,671 +1,82 @@
-<!DOCTYPE html>
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="keywords" content="Feynman, Only Lucky"><meta name="description" content="相信在不久的时间里，你会感激当初迈出第一步的自己"><title>CSS权重计算 | Only Lucky</title><link rel="icon" href="/images/icons/favicon-16x16.png?v=1.5.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=1.5.2" type="image/png" sizes="32x32"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=1.5.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontawesome: {"prefix":"fa"},
+  sidebar: {"offsetTop":"30px","renderTocDepth":4},
+  back2top: {"enable":true},
+  reward: false,
+  fancybox: false,
+  zoom_image: {"enable":true,"mask_color":"rgba(0,0,0,0.6)"},
+  gallery_waterfall: undefined,
+  lazyload: undefined,
+  pjax: undefined,
+  external_link: {"icon":{"enable":true,"name":"external-link"}},
+  shortcuts: {"switch_post":false},
+  prompt: {"copy_success":"复制成功","copy_error":"复制失败","creative_commons":"知识共享","copy_button":"点击复制"}
+};
 
-
-
-
-
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
-
-<link rel="stylesheet" href="/css/main.css?v=7.4.0">
-
-
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-
-
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    version: '7.4.0',
-    exturl: false,
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
-
-  <meta name="description" content="CSS权重计算&amp;emsp;&amp;emsp;一般情况，对于刚接触css3的小白来说，CSS样式权重的计算原理依旧是一头雾水。">
-<meta name="keywords" content="css">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CSS权重计算">
-<meta property="og:url" content="https://onlyLucky.github.io/2019/09/19/CSS权重计算/index.html">
-<meta property="og:site_name" content="Only Lucky">
-<meta property="og:description" content="CSS权重计算&amp;emsp;&amp;emsp;一般情况，对于刚接触css3的小白来说，CSS样式权重的计算原理依旧是一头雾水。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-19T01:51:57.421Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS权重计算">
-<meta name="twitter:description" content="CSS权重计算&amp;emsp;&amp;emsp;一般情况，对于刚接触css3的小白来说，CSS样式权重的计算原理依旧是一头雾水。">
-  <link rel="canonical" href="https://onlyLucky.github.io/2019/09/19/CSS权重计算/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
-  };
-</script>
-
-  <title>CSS权重计算 | Only Lucky</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Only Lucky</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-        <p class="site-subtitle">个人博客空间</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
-        <li class="menu-item menu-item-home">
-      
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-tags">
-      
-    
-
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-categories">
-      
-    
-
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-archives">
-      
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-about">
-      
-    
-
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a href="javascript:;" class="popup-trigger">
-        
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
-      </li>
-    
-  </ul>
-
-</nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
-  </div>
-</div>
-    </header>
-
-    
-
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-            
-
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-      <article itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://onlyLucky.github.io/2019/09/19/CSS权重计算/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Feynman">
-      <meta itemprop="description" content="相信在不久的时间里，你会感激当初迈出第一步的自己">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Only Lucky">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">CSS权重计算
-
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-19 00:00:00 / 修改时间：09:51:57" itemprop="dateCreated datePublished" datetime="2019-09-19T00:00:00+08:00">2019-09-19</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web前端/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h1 id="CSS权重计算"><a href="#CSS权重计算" class="headerlink" title="CSS权重计算"></a>CSS权重计算</h1><p>&emsp;&emsp;一般情况，对于刚接触css3的小白来说，CSS样式权重的计算原理依旧是一头雾水。</p><a id="more"></a>
-<p>&emsp;&emsp;CSS样式的权重排序是：!important&gt;行间样式&gt;id&gt;class|属性&gt;标签选择器&gt;通配符*(注:&gt;表示高低，|表示同级)，但是CSS样式权重并不像我们想象的由高到低排序一样那么简单，其中的权重等级是可以简单计算的，没错，你没有听错！像四则运算一样</p>
+window.CONFIG = CONFIG;</script></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav"><div class="header-nav-inner"><div class="header-nav-btn fa fa-bars"></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/"><i class="fa fa-home"></i>首页</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/archives/"><i class="fa fa-folder-open"></i>归档</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/categories/"><i class="fa fa-th"></i>分类</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/tags/"><i class="fa fa-tags"></i>标签</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/about/"><i class="fa fa-user"></i>关于</a></div></div></div></nav><div class="header-info"><div class="header-info-inner"><div class="header-info-title">Only Lucky</div><div class="header-info-subtitle">个人博客空间</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content"><div class="post"><header class="post-header"><h1 class="post-header-title">CSS权重计算</h1><div class="post-header-meta"><span class="post-header-meta-create"><i class="fa fa-calendar-o"></i><span>发表于 </span><span>2019-09-19</span></span><span class="post-header-meta-update"><i class="fa fa-calendar-check-o"></i><span>更新于 </span><span>2019-09-25</span></span></div></header><div class="post-body"><h1 id="css权重计算"><span class="heading-link">CSS权重计算</span></h1>
+<p>  一般情况，对于刚接触css3的小白来说，CSS样式权重的计算原理依旧是一头雾水。</p>
+<p>  CSS样式的权重排序是：!important&gt;行间样式&gt;id&gt;class|属性&gt;标签选择器&gt;通配符*(注:&gt;表示高低，|表示同级)，但是CSS样式权重并不像我们想象的由高到低排序一样那么简单，其中的权重等级是可以简单计算的，没错，你没有听错！像四则运算一样</p>
 <p>下面的表格为CSS‘权重值’(0,1,10,100,1000并不为准确数值)</p>
-<table>
+<a id="more"></a>
+<div class="table-container"><table>
 <thead>
 <tr>
-<th align="left">CSS样式</th>
+<th style="text-align:left">CSS样式</th>
 <th>权重数值</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">!important</td>
+<tbody>
+<tr>
+<td style="text-align:left">!important</td>
 <td>infinity</td>
 </tr>
 <tr>
-<td align="left">行间样式</td>
+<td style="text-align:left">行间样式</td>
 <td>1000</td>
 </tr>
 <tr>
-<td align="left">id</td>
+<td style="text-align:left">id</td>
 <td>100</td>
 </tr>
 <tr>
-<td align="left">class|属性|伪类</td>
+<td style="text-align:left">class|属性|伪类</td>
 <td>10</td>
 </tr>
 <tr>
-<td align="left">标签|伪元素</td>
+<td style="text-align:left">标签|伪元素</td>
 <td>1</td>
 </tr>
 <tr>
-<td align="left">通配符*</td>
+<td style="text-align:left">通配符*</td>
 <td>0</td>
 </tr>
-</tbody></table>
-<p>&emsp;&emsp;根据资料查证：例如id，100并不是指id的一个权重值就是100，实际上这个100是一个进制数，不是2进制，也不是10进制；而是256进制，就是0到255后+1才是1，列如通配符的权重值0到标签、伪元素的权重值1，中时间实际上差了255。依次类推。</p>
-<p>&emsp;&emsp;!important的权重值虽然是正无穷，但其实也是可也计算的，比如正无穷+1或者*1，就是要比正无穷大，其原理是不管那种语言，在计算机中正无穷的值，都是一个有界的。不是数学上无界的一个慨念。</p>
+</tbody>
+</table></div>
+<p>  根据资料查证：例如id，100并不是指id的一个权重值就是100，实际上这个100是一个进制数，不是2进制，也不是10进制；而是256进制，就是0到255后+1才是1，列如通配符的权重值0到标签、伪元素的权重值1，中时间实际上差了255。依次类推。</p>
+<p>  !important的权重值虽然是正无穷，但其实也是可也计算的，比如正无穷+1或者*1，就是要比正无穷大，其原理是不管那种语言，在计算机中正无穷的值，都是一个有界的。不是数学上无界的一个慨念。</p>
 <p>下面以代码方式演示权重计算的方式：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#home</span>&#123;</span><br><span class="line">    <span class="comment">/*权重计算方式为1*100=100*/</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-id">#home</span> <span class="selector-class">.home-nav</span>&#123;</span><br><span class="line">    <span class="comment">/*权重计算方式为1*100+1*10=110*/</span></span><br><span class="line">    <span class="comment">/*css变量的使用*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">var</span>(--color-tint);</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>&emsp;&emsp;有时候我们或许遇到权重等级不够，样式被覆盖，不显示。或许多加一个id选择器，就会简单解决；我们还可以灵活利用浏览器提供的开发者工具，检测元素标签的属性，盒子大小….</p>
-<p>&emsp;&emsp;最后，第一次做博客小白，有什么缺漏的还请各位已经深入WEB的老司机多多指教批评</p>
-
-    </div>
-
-    
-    
-    
-        
-      
-
-      <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/css/" rel="tag"><i class="fa fa-tags"></i>   css</a>
-            
-          </div>
-        
-
-        
-
-      </footer>
-    
-  </div>
-  
-  
-  
-  </article>
-
-  </div>
-
-
-          </div>
-          
-    
-    <div class="comments" id="gitalk-container"></div>
-  
-
-        </div>
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-        
-        
-        
-        
-      
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS权重计算"><span class="nav-number">1.</span> <span class="nav-text">CSS权重计算</span></a></li></ol></div>
-        
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image"
-      src="/images/avatar.jpg"
-      alt="Feynman">
-  <p class="site-author-name" itemprop="name">Feynman</p>
-  <div class="site-description" itemprop="description">相信在不久的时间里，你会感激当初迈出第一步的自己</div>
-</div>
-  <nav class="site-state motion-element">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">1</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-categories">
-        
-          
-            <a href="/categories/">
-          
-        
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">分类</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-          
-            <a href="/tags/">
-          
-        
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">标签</span>
-        </a>
-      </div>
-    
-  </nav>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://github.com/onlyLucky" title="GitHub &rarr; https://github.com/onlyLucky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="mailto:onlyLucky@126.com" title="E-Mail &rarr; mailto:onlyLucky@126.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://weibo.com/OnlyLucky_" title="Weibo &rarr; https://weibo.com/OnlyLucky_" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
-      </span>
-    
-      <span class="links-of-author-item">
-      
-      
-        
-      
-      
-        
-      
-        <a href="https://user.qzone.qq.com/2901954062" title="QQ &rarr; https://user.qzone.qq.com/2901954062" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
-      </span>
-    
-  </div>
-
-
-
-      </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
-      
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Feynman</span>
-</div>
-
-<!--
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>-->
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-  </div>
-
-  
-
-
-    
-  
-  <script color='0,0,0' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
-<script src="/js/schemes/pisces.js?v=7.4.0"></script>
-
-<script src="/js/next-boot.js?v=7.4.0"></script>
-
-
-
-  
-
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.0"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
+<figure class="highlight css"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#home</span>{</span><br><span class="line">    <span class="comment">/*权重计算方式为1*100=100*/</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">  }</span><br><span class="line">  <span class="selector-id">#home</span> <span class="selector-class">.home-nav</span>{</span><br><span class="line">    <span class="comment">/*权重计算方式为1*100+1*10=110*/</span></span><br><span class="line">    <span class="comment">/*css变量的使用*/</span></span><br><span class="line">    <span class="attribute">background</span>: <span class="built_in">var</span>(--color-tint);</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line">  }</span><br></pre></td></tr></tbody></table></div></figure>
+<p>  有时候我们或许遇到权重等级不够，样式被覆盖，不显示。或许多加一个id选择器，就会简单解决；我们还可以灵活利用浏览器提供的开发者工具，检测元素标签的属性，盒子大小…</p>
+<p>  最后，第一次做博客小白，有什么缺漏的还请各位已经深入WEB的老司机多多指教批评</p>
 <script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: 'd9a718f38f03c93838be',
-      clientSecret: '916ba6dfa98f86fc2961293b774091f0fd74c23c',
-      repo: 'blog_talk',
-      owner: 'onlyLucky',
-      admin: ['onlyLucky'],
-      id: '9c5de27ce2a7031a1e7f7646502b541c',
-        language: 'zh-CN',
-      
-      distractionFreeMode: 'false'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
-
-</body>
-</html>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div><footer class="post-footer"><div class="post-end"><span>------ </span><span>本文结束，感谢您的阅读</span><span> ------</span></div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-author-name">本文作者: </span><span class="post-copyright-author-value"><a href="https://onlyLucky.github.io">Feynman</a></span></div><div class="post-copyright-link"><span class="post-copyright-link-name">本文链接: </span><span class="post-copyright-link-value"><a href="https://onlyLucky.github.io/2019/09/19/CSS权重计算/">https://onlyLucky.github.io/2019/09/19/CSS权重计算/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-notice-name">版权声明: </span><span class="post-copyright-notice-value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><i class="post-tags-item__i fa fa-tags"></i><a class="post-tags-item__a" href="https://onlyLucky.github.io/tags/css/">css</a></span></div><nav class="paginator"><div class="paginator-post"><div class="paginator-post-prev"><a class="paginator-post-prev__a" href="/2019/09/25/Markdown格式语法-基础篇-/"><i class="fa fa-chevron-left"></i><span>Markdown格式语法(基础篇)</span></a></div></div></nav></footer></div></div></div><aside class="sidebar" id="sidebar"><div class="sidebar-inner"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#css权重计算"><span class="toc-number">1.</span> <span class="toc-text">CSS权重计算</span></a></li></ol></div></section><!-- ov = overview --><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/assets/avatar.jpg" alt="avatar"></div><p class="sidebar-ov-author__p">相信在不久的时间里，你会感激当初迈出第一步的自己。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social__item" href="https://github.com/onlyLucky" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><i class="sidebar-ov-social__item--icon fa fa-github"></i></a><a class="sidebar-ov-social__item" href="https://weibo.com/OnlyLucky_" target="_blank" rel="noopener" data-popover="微博" data-popover-pos="up"><i class="sidebar-ov-social__item--icon fa fa-weibo"></i></a><a class="sidebar-ov-social__item" href="ABCD18844963490" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><i class="sidebar-ov-social__item--icon fa fa-weixin"></i></a><a class="sidebar-ov-social__item" href="https://user.qzone.qq.com/2901954062" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><i class="sidebar-ov-social__item--icon fa fa-qq"></i></a><a class="sidebar-ov-social__item" href="mailto:onlyLucky@126.com" target="_blank" rel="noopener" data-popover="social.E-Mail" data-popover-pos="up"><i class="sidebar-ov-social__item--icon fa fa-envelope"></i></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state__a posts" href="/archives/"><div class="sidebar-ov-state__a--count">3</div><div class="sidebar-ov-state__a--name">归档</div></a><a class="sidebar-ov-state__a categories" href="/categories/"><div class="sidebar-ov-state__a--count">2</div><div class="sidebar-ov-state__a--name">分类</div></a><a class="sidebar-ov-state__a tags" href="/tags/"><div class="sidebar-ov-state__a--count">2</div><div class="sidebar-ov-state__a--name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" target="_blank" rel="noopener" data-popover="知识共享" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg" alt="知识共享"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span>你已阅读了 </span><span class="sidebar-reading-info-num">0</span></div><div class="sidebar-reading-line"></div></div></div></aside><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>&copy; 2019</span><span class="fa fa-heart footer-icon"></span><span>Feynman.</span></div><div><span>由 <a href="http://hexo.io/" title="hexo" target="_blank" rel="noopener">hexo</a> 强力驱动</span><span> v3.9.0.</span><span class="separator">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="stun" target="_blank" rel="noopener">stun</a></span><span> v1.5.2.</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="progress"></div></div><div class="back2top" id="back2top"><i class="back2top-icon fa fa-rocket"></i></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=1.5.2"></script><script src="/js/stun-boot.js?v=1.5.2"></script><script src="/js/scroll.js?v=1.5.2"></script><script src="/js/header.js?v=1.5.2"></script><script src="/js/sidebar.js?v=1.5.2"></script></body></html>
