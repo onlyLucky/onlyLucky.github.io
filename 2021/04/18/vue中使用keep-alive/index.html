@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="keep-alive  keep-alive 是 Vue 的内置组件，当它包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 transition 相似，keep-alive 是一个抽象组件：它自身不会渲染成一个 DOM 元素，也不会出现在父组件链中。  作用 在组件切换过程中将状态保留在内存中，防止重复渲染DOM，减少加载时间及性能消耗，提高用户体验性 。  原理 在 created">
+  <meta name="description" content="keep-alive  keep-alive 是 Vue 的内置组件，当它包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 transition 相似，keep-alive 是一个抽象组件：它自身不会渲染成一个 DOM 元素，也不会出现在父组件链中。  作用 在组件切换过程中将状态保留在内存中，防止重复渲染DOM，减少加载时间及性能消耗，提高用户体验性 。">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue中使用keep-alive">
 <meta property="og:url" content="https://onlyLucky.github.io/2021/04/18/vue中使用keep-alive/index.html">
 <meta property="og:site_name" content="Only Lucky">
-<meta property="og:description" content="keep-alive  keep-alive 是 Vue 的内置组件，当它包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 transition 相似，keep-alive 是一个抽象组件：它自身不会渲染成一个 DOM 元素，也不会出现在父组件链中。  作用 在组件切换过程中将状态保留在内存中，防止重复渲染DOM，减少加载时间及性能消耗，提高用户体验性 。  原理 在 created">
+<meta property="og:description" content="keep-alive  keep-alive 是 Vue 的内置组件，当它包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 transition 相似，keep-alive 是一个抽象组件：它自身不会渲染成一个 DOM 元素，也不会出现在父组件链中。  作用 在组件切换过程中将状态保留在内存中，防止重复渲染DOM，减少加载时间及性能消耗，提高用户体验性 。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://onlylucky.github.io/2021/04/18/vue中使用keep-alive/.%5Cvue%E4%B8%AD%E4%BD%BF%E7%94%A8keep-alive%5Cbg.jpg">
-<meta property="og:updated_time" content="2021-04-18T09:31:34.226Z">
+<meta property="og:updated_time" content="2021-04-18T09:52:46.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue中使用keep-alive">
-<meta name="twitter:description" content="keep-alive  keep-alive 是 Vue 的内置组件，当它包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 transition 相似，keep-alive 是一个抽象组件：它自身不会渲染成一个 DOM 元素，也不会出现在父组件链中。  作用 在组件切换过程中将状态保留在内存中，防止重复渲染DOM，减少加载时间及性能消耗，提高用户体验性 。  原理 在 created">
+<meta name="twitter:description" content="keep-alive  keep-alive 是 Vue 的内置组件，当它包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们。和 transition 相似，keep-alive 是一个抽象组件：它自身不会渲染成一个 DOM 元素，也不会出现在父组件链中。  作用 在组件切换过程中将状态保留在内存中，防止重复渲染DOM，减少加载时间及性能消耗，提高用户体验性 。">
 <meta name="twitter:image" content="https://onlylucky.github.io/2021/04/18/vue中使用keep-alive/.%5Cvue%E4%B8%AD%E4%BD%BF%E7%94%A8keep-alive%5Cbg.jpg">
   <link rel="canonical" href="https://onlyLucky.github.io/2021/04/18/vue中使用keep-alive/">
 
@@ -284,7 +284,7 @@
                 
               
 
-              <time title="创建时间：2021-04-18 00:00:00 / 修改时间：17:31:34" itemprop="dateCreated datePublished" datetime="2021-04-18T00:00:00+08:00">2021-04-18</time>
+              <time title="创建时间：2021-04-18 00:00:00 / 修改时间：17:52:46" itemprop="dateCreated datePublished" datetime="2021-04-18T00:00:00+08:00">2021-04-18</time>
             </span>
           
             
@@ -317,10 +317,11 @@
 
       
         <h2 id="keep-alive"><a class="markdownIt-Anchor" href="#keep-alive"></a> keep-alive</h2>
-<p><img src="//onlyLucky.github.io/2021/04/18/vue中使用keep-alive/.%5Cvue%E4%B8%AD%E4%BD%BF%E7%94%A8keep-alive%5Cbg.jpg" alt></p>
+<p><img src="//onlyLucky.github.io/2021/04/18/vue中使用keep-alive/.%5Cvue%E4%B8%AD%E4%BD%BF%E7%94%A8keep-alive%5Cbg.jpg" alt=""></p>
 <p><strong>keep-alive 是 Vue 的内置组件，当它包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们</strong>。和 transition 相似，keep-alive 是一个抽象组件：它自身不会渲染成一个 DOM 元素，也不会出现在父组件链中。</p>
 <h2 id="作用"><a class="markdownIt-Anchor" href="#作用"></a> 作用</h2>
 <p>在组件切换过程中将状态保留在内存中，防止重复渲染DOM，减少加载时间及性能消耗，提高用户体验性 。</p>
+ <a id="more"></a>
 <h2 id="原理"><a class="markdownIt-Anchor" href="#原理"></a> 原理</h2>
 <p>在 <strong>created 生命周期函数调用时将需要缓存的 VNode 节点保存在 this.cache 中／在 render（页面渲染） 时</strong>，如果 VNode 的 name 符合缓存条件（<strong>可以用 include 以及 exclude 控制</strong>），则会从 this.cache 中取出之前缓存的 VNode 实例进行渲染。</p>
 <p>VNode：虚拟DOM，其实就是一个JS对象</p>

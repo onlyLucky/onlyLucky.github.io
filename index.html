@@ -280,7 +280,7 @@
                 
               
 
-              <time title="创建时间：2021-04-18 00:00:00 / 修改时间：17:31:34" itemprop="dateCreated datePublished" datetime="2021-04-18T00:00:00+08:00">2021-04-18</time>
+              <time title="创建时间：2021-04-18 00:00:00 / 修改时间：17:52:46" itemprop="dateCreated datePublished" datetime="2021-04-18T00:00:00+08:00">2021-04-18</time>
             </span>
           
             
@@ -313,64 +313,19 @@
 
       
           <h2 id="keep-alive"><a class="markdownIt-Anchor" href="#keep-alive"></a> keep-alive</h2>
-<p><img src="//onlyLucky.github.io/2021/04/18/vue中使用keep-alive/.%5Cvue%E4%B8%AD%E4%BD%BF%E7%94%A8keep-alive%5Cbg.jpg" alt></p>
+<p><img src="//onlyLucky.github.io/2021/04/18/vue中使用keep-alive/.%5Cvue%E4%B8%AD%E4%BD%BF%E7%94%A8keep-alive%5Cbg.jpg" alt=""></p>
 <p><strong>keep-alive 是 Vue 的内置组件，当它包裹动态组件时，会缓存不活动的组件实例，而不是销毁它们</strong>。和 transition 相似，keep-alive 是一个抽象组件：它自身不会渲染成一个 DOM 元素，也不会出现在父组件链中。</p>
 <h2 id="作用"><a class="markdownIt-Anchor" href="#作用"></a> 作用</h2>
 <p>在组件切换过程中将状态保留在内存中，防止重复渲染DOM，减少加载时间及性能消耗，提高用户体验性 。</p>
-<h2 id="原理"><a class="markdownIt-Anchor" href="#原理"></a> 原理</h2>
-<p>在 <strong>created 生命周期函数调用时将需要缓存的 VNode 节点保存在 this.cache 中／在 render（页面渲染） 时</strong>，如果 VNode 的 name 符合缓存条件（<strong>可以用 include 以及 exclude 控制</strong>），则会从 this.cache 中取出之前缓存的 VNode 实例进行渲染。</p>
-<p>VNode：虚拟DOM，其实就是一个JS对象</p>
-<h2 id="props"><a class="markdownIt-Anchor" href="#props"></a> props</h2>
-<ul>
-<li><code>include</code> - 字符串或正则表达式。只有名称匹配的组件会被缓存。</li>
-<li><code>exclude</code> - 字符串或正则表达式。任何名称匹配的组件都不会被缓存。</li>
-<li><code>max</code> - 数字。最多可以缓存多少组件实例。</li>
-</ul>
-<p>【 vue 2.1.0 新增 】<code>include</code> 和 <code>exclude</code> prop 允许组件有条件地缓存。二者都可以用逗号分隔字符串、正则表达式或一个<strong>数组</strong>来表示：</p>
-<p><strong>使用用法：</strong></p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 逗号分隔字符串 --&gt;</span><br><span class="line">&lt;keep-alive include="a,b"&gt;</span><br><span class="line">  &lt;component :is="view"&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 正则表达式 (使用 `v-bind`) --&gt;</span><br><span class="line">&lt;keep-alive :include="/a|b/"&gt;</span><br><span class="line">  &lt;component :is="view"&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 数组 (使用 `v-bind`) --&gt;</span><br><span class="line">&lt;keep-alive :include="['a', 'b']"&gt;</span><br><span class="line">  &lt;component :is="view"&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="生命周期"><a class="markdownIt-Anchor" href="#生命周期"></a> 生命周期</h2>
-<ul>
-<li>activated： 在 keep-alive 组件激活时调用 。</li>
-<li>deactivated：在 keep-alive 组件停用时调用</li>
-</ul>
-<p>在使用过keep-alive后，再次进来之后页面不会进行数据请求。如果想要再次进入想要页面刷新就可以在activated钩子函数中调用数据请求。</p>
-<p><strong>在服务端渲染ssr时，这些钩子函数也不会被调用。</strong></p>
-<h2 id="基础使用"><a class="markdownIt-Anchor" href="#基础使用"></a> 基础使用</h2>
-<p>1.使用keep-alive包着想要缓存组件，（包含router-view是为了缓存所有页面）。</p>
-<p>App.vue文件中：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id="app"&gt;</span><br><span class="line">  	&lt;keep-alive&gt;</span><br><span class="line">      &lt;router-view/&gt;</span><br><span class="line">    &lt;/keep-alive&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default {</span><br><span class="line">  name: 'App'</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
-<p>2.局部缓存，结合keep-alive的属性include和exclude，结合router配置。</p>
-<p>App.vue文件中：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id="app"&gt;</span><br><span class="line">  	&lt;keep-alive&gt;</span><br><span class="line">      &lt;router-view v-if="$route.meta.keepAlive"&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/keep-alive&gt;</span><br><span class="line">    &lt;router-view v-if="!$route.meta.keepAlive"&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default {</span><br><span class="line">  name: 'App'</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></tbody></table></figure>
-<p>router配置文件</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router({</span><br><span class="line">  mode: <span class="string">'history'</span>,</span><br><span class="line">  routes: [</span><br><span class="line">    {</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'home'</span>,</span><br><span class="line">      component: Home,</span><br><span class="line">      redirect: <span class="string">'index'</span>,</span><br><span class="line">      children: [</span><br><span class="line">        {</span><br><span class="line">          path: <span class="string">'index'</span>,</span><br><span class="line">          name: <span class="string">'index'</span>,</span><br><span class="line">          component: Index,</span><br><span class="line">          meta: {</span><br><span class="line">        	keepAlive: <span class="literal">false</span> <span class="comment">// 不需要缓存</span></span><br><span class="line">      	  }</span><br><span class="line">        },</span><br><span class="line">        {</span><br><span class="line">          path: <span class="string">'user'</span>,</span><br><span class="line">          name: <span class="string">'user'</span>,</span><br><span class="line">          component: User,</span><br><span class="line">          meta: {</span><br><span class="line">        	keepAlive: <span class="literal">true</span>  <span class="comment">// 需要缓存</span></span><br><span class="line">      	  }</span><br><span class="line">        },</span><br><span class="line">       ]</span><br><span class="line">    }</span><br><span class="line">  ]</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-<p><span style="color:red;font-weight:700;">include结合vuex使用：</span></p>
-<p>我们可以借用vuex，动态捕获路由中<code>meta.keepAlive = true</code>配置的组件页面，切记<strong>组件name命名要和路由name设置保持一致，因为include里面匹配的是组件name</strong>。</p>
-<p><strong>使用include/exclude 属性需要给所有vue类的name赋值（注意不是给route的name赋值），否则 include/exclude不生效</strong></p>
-<p>正确写法是：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> {</span><br><span class="line"> name:<span class="string">'a'</span>, <span class="comment">// include 或 exclude所使用的name</span></span><br><span class="line"> data () {</span><br><span class="line"> <span class="keyword">return</span>{</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>路由：</p>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 保持 name为a和b的组件</span><br><span class="line">&lt;keep-alive include="a,b"&gt;</span><br><span class="line">    &lt;router-view/&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></tbody></table></figure>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2021/04/18/vue中使用keep-alive/" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
