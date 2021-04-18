@@ -1,74 +1,380 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="keywords" content="Feynman, Only Lucky"><meta name="description" content="相信在不久的时间里，你会感激当初迈出第一步的自己"><title>Markdown格式语法(进阶篇) | Only Lucky</title><link rel="icon" href="/images/icons/favicon-16x16.png?v=1.5.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=1.5.2" type="image/png" sizes="32x32"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=1.5.2"><script>var Stun = window.Stun || {};
-var CONFIG = {
-  root: '/',
-  algolia: undefined,
-  fontawesome: {"prefix":"fa"},
-  sidebar: {"offsetTop":"30px","renderTocDepth":4},
-  back2top: {"enable":true},
-  reward: false,
-  fancybox: false,
-  zoom_image: {"enable":true,"mask_color":"rgba(0,0,0,0.6)"},
-  gallery_waterfall: undefined,
-  lazyload: undefined,
-  pjax: undefined,
-  external_link: {"icon":{"enable":true,"name":"external-link"}},
-  shortcuts: {"switch_post":false},
-  prompt: {"copy_success":"复制成功","copy_error":"复制失败","creative_commons":"知识共享","copy_button":"点击复制"}
-};
+<!DOCTYPE html>
 
-window.CONFIG = CONFIG;</script></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav"><div class="header-nav-inner"><div class="header-nav-btn fa fa-bars"></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/"><i class="fa fa-home"></i>首页</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/archives/"><i class="fa fa-folder-open"></i>归档</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/categories/"><i class="fa fa-th"></i>分类</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/tags/"><i class="fa fa-tags"></i>标签</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/about/"><i class="fa fa-user"></i>关于</a></div></div></div></nav><div class="header-info"><div class="header-info-inner"><div class="header-info-title">Only Lucky</div><div class="header-info-subtitle">个人博客空间</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content"><div class="post"><header class="post-header"><h1 class="post-header-title">Markdown格式语法(进阶篇)</h1><div class="post-header-meta"><span class="post-header-meta-create"><i class="fa fa-calendar-o"></i><span>发表于 </span><span>2019-09-25</span></span><span class="post-header-meta-update"><i class="fa fa-calendar-check-o"></i><span>更新于 </span><span>2019-09-25</span></span></div></header><div class="post-body"><h1 id="markdown格式语法进阶篇"><span class="heading-link">Markdown格式语法(进阶篇)</span></h1>
-<h2 id="1yaml题头"><span class="heading-link">1.YAML题头</span></h2>
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.4.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.json',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Markdown格式语法(进阶篇)  1.YAML题头 YAML（/ˈjæməl/，尾音类似camel骆驼）是一个可读性高，用来表达数据序列化的格式。(from baidu) 在这里呢，我只接触hexo博客书写的题头，具体的语法自行百度">
+<meta name="keywords" content="markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown格式语法(进阶篇)">
+<meta property="og:url" content="https://onlyLucky.github.io/2019/09/25/Markdown格式语法-进阶篇-/index.html">
+<meta property="og:site_name" content="Only Lucky">
+<meta property="og:description" content="Markdown格式语法(进阶篇)  1.YAML题头 YAML（/ˈjæməl/，尾音类似camel骆驼）是一个可读性高，用来表达数据序列化的格式。(from baidu) 在这里呢，我只接触hexo博客书写的题头，具体的语法自行百度">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-28T08:49:33.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Markdown格式语法(进阶篇)">
+<meta name="twitter:description" content="Markdown格式语法(进阶篇)  1.YAML题头 YAML（/ˈjæməl/，尾音类似camel骆驼）是一个可读性高，用来表达数据序列化的格式。(from baidu) 在这里呢，我只接触hexo博客书写的题头，具体的语法自行百度">
+  <link rel="canonical" href="https://onlyLucky.github.io/2019/09/25/Markdown格式语法-进阶篇-/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Markdown格式语法(进阶篇) | Only Lucky</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Only Lucky</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">个人博客空间</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://onlyLucky.github.io/2019/09/25/Markdown格式语法-进阶篇-/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Feynman">
+      <meta itemprop="description" content="相信在不久的时间里，你会感激当初迈出第一步的自己">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Only Lucky">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Markdown格式语法(进阶篇)
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-25 12:00:09" itemprop="dateCreated datePublished" datetime="2019-09-25T12:00:09+08:00">2019-09-25</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-28 16:49:33" itemprop="dateModified" datetime="2019-10-28T16:49:33+08:00">2019-10-28</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/markdown-study/" itemprop="url" rel="index"><span itemprop="name">markdown_study</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="markdown格式语法进阶篇"><a class="markdownIt-Anchor" href="#markdown格式语法进阶篇"></a> Markdown格式语法(进阶篇)</h1>
+<h2 id="1yaml题头"><a class="markdownIt-Anchor" href="#1yaml题头"></a> 1.YAML题头</h2>
 <p><strong>YAML</strong>（/ˈjæməl/，尾音类似<em>camel</em>骆驼）是一个可读性高，用来表达数据序列化的格式。(from baidu)</p>
 <p>在这里呢，我只接触hexo博客书写的题头，具体的语法自行百度</p>
 <a id="more"></a>
 <p>eg:</p>
-<figure class="highlight markdown"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---       </span><br><span class="line"><span class="code">        title: CSS权重计算</span></span><br><span class="line"><span class="code">        date: 2019-09-19</span></span><br><span class="line"><span class="code">        tags:</span></span><br><span class="line"><span class="code">            css</span></span><br><span class="line"><span class="code">        categories: Web前端</span></span><br><span class="line">---</span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---       </span><br><span class="line"><span class="code">        title: CSS权重计算</span></span><br><span class="line"><span class="code">        date: 2019-09-19</span></span><br><span class="line"><span class="code">        tags:</span></span><br><span class="line"><span class="code">            css</span></span><br><span class="line"><span class="code">        categories: Web前端</span></span><br><span class="line">---</span><br></pre></td></tr></tbody></table></figure>
 <p><span style="color: #dc3545;">补充：</span> YAML在hexo博客是一个扩展语法，用来表示文本信息让博客来识别，但是这里与markdown语法没有太大联系，适当了解即可</p>
 <p><span style="color: #dc3545;">注意：</span> 一定要写在文章头部，英文冒号之后加一个空格</p>
 <hr>
-<h2 id="2注脚"><span class="heading-link">2.注脚</span></h2>
+<h2 id="2注脚"><a class="markdownIt-Anchor" href="#2注脚"></a> 2.注脚</h2>
 <p>显而易见，就像小学课本上的文言文注解一样</p>
 <p>eg:</p>
-<figure class="highlight markdown"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">^注脚标识符</span>]		[^注脚标识符]:注脚内容</span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="symbol">^注脚标识符</span>]		[^注脚标识符]:注脚内容</span><br></pre></td></tr></tbody></table></figure>
 <p>样式展示：</p>
 <p>上邪<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
 <p><span style="color: #dc3545;">注意：</span> 每个md编译器的展示效果都是不太一样的</p>
 <hr>
-<h2 id="3作品标记"><span class="heading-link">3.作品标记</span></h2>
+<h2 id="3作品标记"><a class="markdownIt-Anchor" href="#3作品标记"></a> 3.作品标记</h2>
 <p><strong>html</strong></p>
 <p>eg:</p>
-<figure class="highlight html"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">cite</span>&gt;</span>《诗经》<span class="tag">&lt;/<span class="name">cite</span>&gt;</span></span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">cite</span>&gt;</span>《诗经》<span class="tag">&lt;/<span class="name">cite</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <p>效果展示：<cite>《诗经》</cite></p>
 <p><strong>markdown</strong></p>
 <p>markdown中常使用 “” 《诗经》 “” ，这里好像没有显示(每个md编译器效果都不一样)不太常用</p>
 <hr>
-<h2 id="4缩写"><span class="heading-link">4.缩写</span></h2>
+<h2 id="4缩写"><a class="markdownIt-Anchor" href="#4缩写"></a> 4.缩写</h2>
 <p>常见在英文缩写，鼠标移动上去时会显示全写</p>
 <p><strong>html</strong></p>
 <p>eg:</p>
-<figure class="highlight html"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">"HyperText Markup Language"</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span></span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">"HyperText Markup Language"</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 <p>展示效果：<abbr title="HyperText Markup Language"><abbr title="HyperText Markup Language">HTML</abbr></abbr></p>
 <p><strong>markdown</strong></p>
 <p>eg:</p>
-<figure class="highlight markdown"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*[HTML]:HyperText Markup Language			HTML</span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*[HTML]:HyperText Markup Language			HTML</span><br></pre></td></tr></tbody></table></figure>
 <p>展示效果：  <abbr title="HyperText Markup Language">HTML</abbr></p>
 <p>他就像是一个自定义变量，然后再引用</p>
 <hr>
-<h2 id="5自定义div"><span class="heading-link">5.自定义div</span></h2>
+<h2 id="5自定义div"><a class="markdownIt-Anchor" href="#5自定义div"></a> 5.自定义div</h2>
 <p>用不少于3个的:,冒号后面紧跟的是类名(不是所有的编译器都能够支持这种效果，不显示也很正常)</p>
 <p>eg:</p>
-<figure class="highlight markdown"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:::normol</span><br><span class="line"></span><br><span class="line">hello world</span><br><span class="line"></span><br><span class="line"> :::</span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:::normol</span><br><span class="line"></span><br><span class="line">hello world</span><br><span class="line"></span><br><span class="line"> :::</span><br></pre></td></tr></tbody></table></figure>
 <p>效果展示：</p>
 <p>:::normol</p>
 <p>hello world</p>
 <p>:::</p>
 <hr>
-<h2 id="6表格"><span class="heading-link">6.表格</span></h2>
+<h2 id="6表格"><a class="markdownIt-Anchor" href="#6表格"></a> 6.表格</h2>
 <p>html中的table，tr,th,td标签就不再多赘述了，重点是markdown的语法格式</p>
 <p>eg:</p>
-<figure class="highlight markdown"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|th1|th2|th3|</span><br><span class="line">|:--|:--:|--:|</span><br><span class="line">|hello|hello|hello|</span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">|th1|th2|th3|</span><br><span class="line">|:--|:--:|--:|</span><br><span class="line">|hello|hello|hello|</span><br></pre></td></tr></tbody></table></figure>
 <p>效果展示：</p>
-<div class="table-container"><table>
+<table>
 <thead>
 <tr>
 <th style="text-align:left">th1</th>
@@ -83,20 +389,20 @@ window.CONFIG = CONFIG;</script></head><body><div class="container" id="containe
 <td style="text-align:right">hello</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p><span style="color: #dc3545;">注意：</span> 其中的冒号分别代表着左对齐、居中对齐、右对齐,中间至少要用一个减号分割(一些md编译器不支持表格布局);中间减号在一些编译器中有一些权重，减号越多列宽越大</p>
 <hr>
-<h2 id="7emoji表情"><span class="heading-link">7.emoji表情</span></h2>
+<h2 id="7emoji表情"><a class="markdownIt-Anchor" href="#7emoji表情"></a> 7.emoji表情</h2>
 <p>emoji是markdown中的扩展语法，是不包括emoji表情的</p>
 <p>eg:</p>
-<figure class="highlight markdown"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:smile:</span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:smile:</span><br></pre></td></tr></tbody></table></figure>
 <p>效果展示：</p>
 <p>😄</p>
 <p>其他更多的emoji表情请自行百度markdown中emoji代码github😄😄</p>
 <hr>
-<h2 id="8todo-list"><span class="heading-link">8.TODO list</span></h2>
+<h2 id="8todo-list"><a class="markdownIt-Anchor" href="#8todo-list"></a> 8.TODO list</h2>
 <p>eg:</p>
-<figure class="highlight markdown"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*TODAY</span><br><span class="line">-[ ] READING</span><br><span class="line">-[X] DO HOMEWORK</span><br><span class="line"><span class="bullet">- </span>WALKING</span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*TODAY</span><br><span class="line">-[ ] READING</span><br><span class="line">-[X] DO HOMEWORK</span><br><span class="line"><span class="bullet">- </span>WALKING</span><br></pre></td></tr></tbody></table></figure>
 <p>效果展示：</p>
 <ul>
 <li>TODAY
@@ -109,10 +415,10 @@ window.CONFIG = CONFIG;</script></head><body><div class="container" id="containe
 </ul>
 <p>有些编译器可以选中，一般都会在无序列表中实现</p>
 <hr>
-<h2 id="9latax学术排版mathjax"><span class="heading-link">9.LaTax(学术排版)–MathJax</span></h2>
+<h2 id="9latax学术排版mathjax"><a class="markdownIt-Anchor" href="#9latax学术排版mathjax"></a> 9.LaTax(学术排版)–MathJax</h2>
 <p>支持LaTax算是markdown扩展中的恐怖之处了</p>
 <p>eg:</p>
-<figure class="highlight markdown"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line"><span class="code">	\begin{equation}\int_0^\infty\frac{x^3}{e^x-1}\,dx=\frac{\pi^4}{15}\end{equation}</span></span><br><span class="line">$$</span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line"><span class="code">	\begin{equation}\int_0^\infty\frac{x^3}{e^x-1}\,dx=\frac{\pi^4}{15}\end{equation}</span></span><br><span class="line">$$</span><br></pre></td></tr></tbody></table></figure>
 <p>效果展示：</p>
 <p class="katex-block katex-error" title="ParseError: KaTeX parse error: No such environment: equation at position 7: \begin{̲e̲q̲u̲a̲t̲i̲o̲n̲}̲
 \int_0^\infty\…">\begin{equation}
@@ -120,11 +426,10 @@ window.CONFIG = CONFIG;</script></head><body><div class="container" id="containe
 \end{equation}
 </p>
 <p>eg:</p>
-<figure class="highlight markdown"><div class="table-container"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line"><span class="code">	\sum_{i=0}N\int_{a}{b}g(t,i)\text{d}t</span></span><br><span class="line">$$</span><br></pre></td></tr></tbody></table></div></figure>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line"><span class="code">	\sum_{i=0}N\int_{a}{b}g(t,i)\text{d}t</span></span><br><span class="line">$$</span><br></pre></td></tr></tbody></table></figure>
 <p>效果展示：</p>
-<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><munder><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow></munder><mi>N</mi><msub><mo>∫</mo><mi>a</mi></msub><mi>b</mi><mi>g</mi><mo stretchy="false">(</mo><mi>t</mi><mo separator="true">,</mo><mi>i</mi><mo stretchy="false">)</mo><mtext>d</mtext><mi>t</mi></mrow><annotation encoding="application/x-tex"> {\sum_{i=0}N\int_{a}{b}g(t,i)\text{d}t}
-
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.637669em;vertical-align:-1.277669em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0500050000000003em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.6105579999999999em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">b</span></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mclose">)</span><span class="mord text"><span class="mord">d</span></span><span class="mord mathdefault">t</span></span></span></span></span></span></p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><munder><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow></munder><mi>N</mi><msub><mo>∫</mo><mi>a</mi></msub><mi>b</mi><mi>g</mi><mo stretchy="false">(</mo><mi>t</mi><mo separator="true">,</mo><mi>i</mi><mo stretchy="false">)</mo><mtext>d</mtext><mi>t</mi></mrow><annotation encoding="application/x-tex">\sum_{i=0}N\int_{a}{b}g(t,i)\text{d}t
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.637669em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0500050000000003em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">0</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;">∫</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.6105579999999999em;"><span style="top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9119499999999999em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">b</span></span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault">t</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">i</span><span class="mclose">)</span><span class="mord text"><span class="mord">d</span></span><span class="mord mathdefault">t</span></span></span></span></span></p>
 <hr>
 <p>到这里就是我所了解的markdown语法的全部了，感兴趣的小伙伴，可以深入去了解一下。markdown的编译器有很多我就不在推荐了，大家可以下载体验一下，非常有趣。希望能够得到更多支持，谢谢😘😘😘</p>
 <hr class="footnotes-sep">
@@ -152,4 +457,305 @@ window.CONFIG = CONFIG;</script></head><body><div class="container" id="containe
             });
             document.body.appendChild(img);
           });
-      </script></div><footer class="post-footer"><div class="post-end"><span>------ </span><span>本文结束，感谢您的阅读</span><span> ------</span></div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-author-name">本文作者: </span><span class="post-copyright-author-value"><a href="https://onlyLucky.github.io">Feynman</a></span></div><div class="post-copyright-link"><span class="post-copyright-link-name">本文链接: </span><span class="post-copyright-link-value"><a href="https://onlyLucky.github.io/2019/09/25/Markdown格式语法-进阶篇-/">https://onlyLucky.github.io/2019/09/25/Markdown格式语法-进阶篇-/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-notice-name">版权声明: </span><span class="post-copyright-notice-value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><i class="post-tags-item__i fa fa-tags"></i><a class="post-tags-item__a" href="https://onlyLucky.github.io/tags/markdown/">markdown</a></span></div><nav class="paginator"><div class="paginator-post"><div class="paginator-post-next"><a class="paginator-post-next__a" href="/2019/09/25/Markdown格式语法-基础篇-/"><span>Markdown格式语法(基础篇)</span><i class="fa fa-chevron-right"></i></a></div></div></nav></footer></div></div></div><aside class="sidebar" id="sidebar"><div class="sidebar-inner"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#markdown格式语法进阶篇"><span class="toc-number">1.</span> <span class="toc-text">Markdown格式语法(进阶篇)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1yaml题头"><span class="toc-number">1.1.</span> <span class="toc-text">1.YAML题头</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2注脚"><span class="toc-number">1.2.</span> <span class="toc-text">2.注脚</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3作品标记"><span class="toc-number">1.3.</span> <span class="toc-text">3.作品标记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4缩写"><span class="toc-number">1.4.</span> <span class="toc-text">4.缩写</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5自定义div"><span class="toc-number">1.5.</span> <span class="toc-text">5.自定义div</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6表格"><span class="toc-number">1.6.</span> <span class="toc-text">6.表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7emoji表情"><span class="toc-number">1.7.</span> <span class="toc-text">7.emoji表情</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8todo-list"><span class="toc-number">1.8.</span> <span class="toc-text">8.TODO list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9latax学术排版mathjax"><span class="toc-number">1.9.</span> <span class="toc-text">9.LaTax(学术排版)–MathJax</span></a></li></ol></li></ol></div></section><!-- ov = overview --><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/assets/avatar.jpg" alt="avatar"></div><p class="sidebar-ov-author__p">相信在不久的时间里，你会感激当初迈出第一步的自己。</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social__item" href="https://github.com/onlyLucky" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><i class="sidebar-ov-social__item--icon fa fa-github"></i></a><a class="sidebar-ov-social__item" href="https://weibo.com/OnlyLucky_" target="_blank" rel="noopener" data-popover="微博" data-popover-pos="up"><i class="sidebar-ov-social__item--icon fa fa-weibo"></i></a><a class="sidebar-ov-social__item" href="ABCD18844963490" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><i class="sidebar-ov-social__item--icon fa fa-weixin"></i></a><a class="sidebar-ov-social__item" href="https://user.qzone.qq.com/2901954062" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><i class="sidebar-ov-social__item--icon fa fa-qq"></i></a><a class="sidebar-ov-social__item" href="mailto:onlyLucky@126.com" target="_blank" rel="noopener" data-popover="social.E-Mail" data-popover-pos="up"><i class="sidebar-ov-social__item--icon fa fa-envelope"></i></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state__a posts" href="/archives/"><div class="sidebar-ov-state__a--count">3</div><div class="sidebar-ov-state__a--name">归档</div></a><a class="sidebar-ov-state__a categories" href="/categories/"><div class="sidebar-ov-state__a--count">2</div><div class="sidebar-ov-state__a--name">分类</div></a><a class="sidebar-ov-state__a tags" href="/tags/"><div class="sidebar-ov-state__a--count">2</div><div class="sidebar-ov-state__a--name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-cn" target="_blank" rel="noopener" data-popover="知识共享" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg" alt="知识共享"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span>你已阅读了 </span><span class="sidebar-reading-info-num">0</span></div><div class="sidebar-reading-line"></div></div></div></aside><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>&copy; 2019</span><span class="fa fa-heart footer-icon"></span><span>Feynman.</span></div><div><span>由 <a href="http://hexo.io/" title="hexo" target="_blank" rel="noopener">hexo</a> 强力驱动</span><span> v3.9.0.</span><span class="separator">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="stun" target="_blank" rel="noopener">stun</a></span><span> v1.5.2.</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="progress"></div></div><div class="back2top" id="back2top"><i class="back2top-icon fa fa-rocket"></i></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=1.5.2"></script><script src="/js/stun-boot.js?v=1.5.2"></script><script src="/js/scroll.js?v=1.5.2"></script><script src="/js/header.js?v=1.5.2"></script><script src="/js/sidebar.js?v=1.5.2"></script></body></html>
+      </script>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/markdown/" rel="tag"><i class="fa fa-tags"></i>   markdown</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/25/Markdown格式语法-基础篇-/" rel="next" title="Markdown格式语法(基础篇)">
+                  <i class="fa fa-chevron-left"></i> Markdown格式语法(基础篇)
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2021/04/18/vue中使用keep-alive/" rel="prev" title="vue中使用keep-alive">
+                  vue中使用keep-alive <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#markdown格式语法进阶篇"><span class="nav-number">1.</span> <span class="nav-text"> Markdown格式语法(进阶篇)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1yaml题头"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.YAML题头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2注脚"><span class="nav-number">1.2.</span> <span class="nav-text"> 2.注脚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3作品标记"><span class="nav-number">1.3.</span> <span class="nav-text"> 3.作品标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4缩写"><span class="nav-number">1.4.</span> <span class="nav-text"> 4.缩写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5自定义div"><span class="nav-number">1.5.</span> <span class="nav-text"> 5.自定义div</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6表格"><span class="nav-number">1.6.</span> <span class="nav-text"> 6.表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7emoji表情"><span class="nav-number">1.7.</span> <span class="nav-text"> 7.emoji表情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8todo-list"><span class="nav-number">1.8.</span> <span class="nav-text"> 8.TODO list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9latax学术排版mathjax"><span class="nav-number">1.9.</span> <span class="nav-text"> 9.LaTax(学术排版)–MathJax</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Feynman">
+  <p class="site-author-name" itemprop="name">Feynman</p>
+  <div class="site-description" itemprop="description">相信在不久的时间里，你会感激当初迈出第一步的自己</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/onlyLucky" title="GitHub &rarr; https://github.com/onlyLucky" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:onlyLucky@126.com" title="E-Mail &rarr; mailto:onlyLucky@126.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/OnlyLucky_" title="Weibo &rarr; https://weibo.com/OnlyLucky_" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://user.qzone.qq.com/2901954062" title="QQ &rarr; https://user.qzone.qq.com/2901954062" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Feynman</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.0</div>-->
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+    
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.0"></script><script src="/js/motion.js?v=7.4.0"></script>
+<script src="/js/schemes/pisces.js?v=7.4.0"></script>
+
+<script src="/js/next-boot.js?v=7.4.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: 'd9a718f38f03c93838be',
+      clientSecret: '916ba6dfa98f86fc2961293b774091f0fd74c23c',
+      repo: 'blog_talk',
+      owner: 'onlyLucky',
+      admin: ['onlyLucky'],
+      id: 'ae30937418f59f957b0a0ece90157dc4',
+        language: 'zh-CN',
+      
+      distractionFreeMode: 'false'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+</body>
+</html>
